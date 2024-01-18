@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebAppCrudMVC.Models.Adres>
+
+@{
+    ViewBag.Title = "Adresler";
+}
+
+<h2 class="fw-bolder">Adresler</h2>
+
+<p>
+    @Html.ActionLink("Adres Ekle", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sehir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ilce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcikAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostaKodu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sehir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ilce)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcikAdres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostaKodu)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-outline-success" })
+            @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-danger" })
+        </td>
+    </tr>
+}
+
+</table>
